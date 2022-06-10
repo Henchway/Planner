@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>All Shifts</h1>
+    <table>
+        <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th>Link</th>
+        </tr>
+        {% for instance in object_list %}
+            <tr>
+                <td> {{ instance.start }}</td>
+                <td> {{ instance.end }}</td>
+                <td><a href="{{ instance.get_absolute_url }}">Link</a></td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}

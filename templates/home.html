@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Hello World!</h1>
+    <p>{{ request.user }}</p>
+
+    <p>
+        {{ my_number }}, {{ my_test }}
+    </p>
+    <ul>
+    {% for item in my_list %}
+        <li>{{ forloop.counter }} - {{ item }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
