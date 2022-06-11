@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from pages.views import home_view
 
+admin.autodiscover()
 
 urlpatterns = [
     path('', home_view, name='home'),

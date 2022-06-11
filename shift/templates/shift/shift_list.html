@@ -6,13 +6,15 @@
         <tr>
             <th>Start</th>
             <th>End</th>
+            <th>Duration</th>
             <th>Link</th>
         </tr>
         {% for instance in object_list %}
             <tr>
-                <td> {{ instance.start }}</td>
-                <td> {{ instance.end }}</td>
-                <td><a href="{{ instance.get_absolute_url }}">Link</a></td>
+                <td> {{ instance.start_time }}</td>
+                <td> {{ instance.end_time }}</td>
+                <td> {{ instance.duration }}</td>
+                <td><a href="{{ instance.get_absolute_url }}">Detail</a></td>
             </tr>
 
         {% endfor %}

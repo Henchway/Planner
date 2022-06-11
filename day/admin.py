@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from .models import Staff
-
 # Register your models here.
+from day.models import Day
 
-admin.site.register(Staff)
+admin.site.register(Day)

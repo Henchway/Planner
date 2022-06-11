@@ -7,6 +7,6 @@ class ShiftModelForm(ModelForm):
     class Meta:
         model = Shift
         fields = [
-            'start',
-            'end',
+            'start_time',
+            'end_time'
         ]
