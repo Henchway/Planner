@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Location</h1>
+    <section>
+        <table>
+            <tr>
+                <th>Name</th>
+                <td> {{ object.name }}</td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td> {{ object.address }}</td>
+            </tr>
+
+        </table>
+
+    </section>
+    <div>
+        <a href="./update" role="button">Update</a>
+        <a href="./delete" role="button">Delete</a>
+        <a href="../">Back</a>
+    </div>
+
+
+{% endblock %}

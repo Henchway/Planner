@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     "apps.pages",
     "apps.shift",
     "apps.day",
-    "apps.schedule"
+    "apps.schedule",
+    "apps.location"
 ]
 
 MIDDLEWARE = [

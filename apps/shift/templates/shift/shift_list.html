@@ -7,6 +7,9 @@
             <th>Start</th>
             <th>End</th>
             <th>Duration</th>
+            <th>Weekdays</th>
+            <th>Staff</th>
+            <th>Locations</th>
             <th>Link</th>
         </tr>
         {% for instance in object_list %}
@@ -14,6 +17,19 @@
                 <td> {{ instance.start_time }}</td>
                 <td> {{ instance.end_time }}</td>
                 <td> {{ instance.duration }}</td>
+                <td> {{ instance.weekdays }}</td>
+                <td> {{ instance.staff_needed }}</td>
+                <td>
+                    <table>
+                        {% for location in instance.location.all %}
+                            <tr>
+                                <td>
+                                    <a href="{{ location.get_absolute_url }}">{{ location }}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </td>
                 <td><a href="{{ instance.get_absolute_url }}">Detail</a></td>
             </tr>
 

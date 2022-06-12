@@ -3,11 +3,12 @@ import datetime
 from django.db import models
 
 # Create your models here.
-from django.db.models import TimeField, IntegerField
+from django.db.models import TimeField, IntegerField, ManyToManyField
 from django.urls import reverse
 from multiselectfield import MultiSelectField
 
 from Planner.config import Weekdays
+from apps.location.models import Location
 
 
 class Shift(models.Model):
@@ -15,6 +16,7 @@ class Shift(models.Model):
     end_time = TimeField()
     weekdays = MultiSelectField(choices=Weekdays, max_choices=7, max_length=300, null=True)
     staff_needed = IntegerField(default=1)
+    location = ManyToManyField("location.Location")
 
     class Meta:
         unique_together = ['start_time', 'end_time', 'weekdays']

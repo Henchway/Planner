@@ -4,6 +4,11 @@ from .models import Staff
 
 
 class StaffModelForm(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super(StaffModelForm, self).__init__(*args, **kwargs)
+        self.fields['excluded_coworkers'].queryset = Staff.objects.exclude(id=self.instance.id)
+
     class Meta:
         model = Staff
         fields = [

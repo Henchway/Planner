@@ -24,6 +24,20 @@
                 <th>Staff Needed</th>
                 <td>{{ object.staff_needed }}</td>
             </tr>
+            <tr>
+                <th>Locations</th>
+                <td>
+                    <table>
+                        {% for location in object.location.all %}
+                            <tr>
+                                <td>
+                                    <a href="{{ location.get_absolute_url }}">{{ location }}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
         </table>
 
     </section>

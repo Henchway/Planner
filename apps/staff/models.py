@@ -1,11 +1,10 @@
 from django.db import models
-import json
+
 # Create your models here.
 from django.db.models import ManyToManyField
 from django.urls import reverse
 from multiselectfield import MultiSelectField
 from phonenumber_field.modelfields import PhoneNumberField
-from django.utils.translation import gettext_lazy as _
 
 from Planner.config import Weekdays
 from apps.day.models import Day

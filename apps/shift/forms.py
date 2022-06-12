@@ -11,7 +11,8 @@ class ShiftModelForm(ModelForm):
             'start_time',
             'end_time',
             'weekdays',
-            'staff_needed'
+            'staff_needed',
+            'location'
         ]
         widgets = {
             "start_time": TimeInput(attrs={'type': 'time'}),
