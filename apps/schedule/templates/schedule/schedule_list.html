@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>All Schedules</h1>
+    <table>
+        <tr>
+            <th>Start</th>
+            <th>End</th>
+            <th>Days</th>
+            <th>Link</th>
+        </tr>
+        {% for instance in object_list %}
+            <tr>
+                <td> {{ instance.start_date }}</td>
+                <td> {{ instance.end_date }}</td>
+                <td>
+                    <table>
+                        {% for day in instance.days.all %}
+                            <tr>
+                                <td>
+                                    <a href="{{ day.get_absolute_url }}">{{ day }}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+                <td><a href="{{ instance.get_absolute_url }}">Detail</a></td>
+            </tr>
+
+        {% endfor %}
+
+    </table>
+    <div>
+        <a href="./create" role="button">Create</a>
+    </div>
+
+
+{% endblock %}

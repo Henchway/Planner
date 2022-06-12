@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -38,13 +39,14 @@ INSTALLED_APPS = [
 
     # third party
     'phonenumber_field',
+    "multiselectfield",
 
     # custom
-    "staff",
-    "pages",
-    "shift",
-    "day",
-    "schedule"
+    "apps.staff",
+    "apps.pages",
+    "apps.shift",
+    "apps.day",
+    "apps.schedule"
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Staff Member</h1>
+    <section>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <td> {{ object.first_name }}</td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td>{{ object.last_name }}</td>
+            </tr>
+            <tr>
+                <th>Email Address</th>
+                <td>{{ object.mail }}</td>
+            </tr>
+            <tr>
+                <th>Phone Number</th>
+                <td>{{ object.phone }}</td>
+            </tr>
+            <tr>
+                <th>Working Hours</th>
+                <td>{{ object.hours }}</td>
+            </tr>
+            <tr>
+                <th>Workdays</th>
+                <td>{{ object.active }}</td>
+            </tr>
+            <tr>
+                <th>Working Days</th>
+                <td>{{ object.workdays }}</td>
+            </tr>
+            <tr>
+                <th>Excluded Coworkers</th>
+                <td>
+                    <table>
+                        {% for coworker in object.excluded_coworkers.all %}
+                            <tr>{{ coworker }}</tr>
+                        {% endfor %}
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <th>Future Days Off</th>
+                <td>
+                    <table>
+                        {% for day in object.days_off.all %}
+                            {% if not day.is_in_past %}
+                                <tr>
+                                    <td>{{ day.date }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+
+    </section>
+    <div>
+        <a href="./update" role="button">Update</a>
+        <a href="./delete" role="button">Delete</a>
+        <a href="./days_off" role="button">Set Days Off</a>
+        <a href="../">Back</a>
+    </div>
+
+{% endblock %}

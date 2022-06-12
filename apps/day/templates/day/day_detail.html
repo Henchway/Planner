@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Day</h1>
+    <section>
+        <table>
+            <tr>
+                <th>Date</th>
+                <td> {{ object.date }}</td>
+            </tr>
+            <tr>
+                <th>Shifts</th>
+                <td>
+                    <table>
+                        {% for shift in object.shifts.all %}
+                            <tr>
+                                <td>
+                                    <a href="{{ shift.get_absolute_url }}">{{ shift }}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <th>Weekday</th>
+                <td> {{ object.weekday }}</td>
+            </tr>
+            <tr>
+                <th>Schedule</th>
+                <td>
+                    <a href="{{ object.schedule.get_absolute_url }}">
+                        {{ object.schedule }}
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+    </section>
+    <div>
+        <a href="./update" role="button">Update</a>
+        <a href="./delete" role="button">Delete</a>
+        <a href="../">Back</a>
+    </div>
+
+
+{% endblock %}

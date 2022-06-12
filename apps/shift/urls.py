@@ -13,17 +13,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
-from apps.pages.views import home_view
 
-admin.autodiscover()
+from django.urls import path
 
+from .views import ShiftListView, ShiftDetailView, ShiftCreateView, ShiftUpdateView, ShiftDeleteView
+
+app_name = 'shift'
 urlpatterns = [
-    path('', home_view, name='home'),
-    path('admin/', admin.site.urls),
-    path('staff/', include('apps.staff.urls')),
-    path('shift/', include('apps.shift.urls')),
-    path('schedule/', include('apps.schedule.urls')),
-    path('day/', include('apps.day.urls')),
+    path('', ShiftListView.as_view(), name='shift-list'),
+    path('<int:id>/', ShiftDetailView.as_view(), name='shift-detail'),
+    path('create/', ShiftCreateView.as_view(), name='shift-create'),
+    path('<int:id>/update/', ShiftUpdateView.as_view(), name='shift-update'),
+    path('<int:id>/delete/', ShiftDeleteView.as_view(), name='shift-delete'),
 ]
